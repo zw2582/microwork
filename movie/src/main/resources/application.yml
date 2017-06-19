@@ -1,0 +1,11 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: service-movie
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7901/eureka
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}

@@ -1,0 +1,20 @@
+server:
+  port: 8182
+spring:
+  application:
+    name: service-user
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/dna_user?serverTimezone=UTC&characterEncoding=utf8
+    username: root
+    password: 123456
+    
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7901/eureka
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
