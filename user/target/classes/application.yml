@@ -4,10 +4,16 @@ spring:
   application:
     name: service-user
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/dna_user?serverTimezone=UTC&characterEncoding=utf8
     username: root
     password: 123456
+#    driver-class-name: org.h2.Driver
+#    url: jdbc:h2:mem:test
+#    username: root
+#    password: 123456
+#    schema: classpath:schema/blog.sql
+#    data: classpath:schema/blog_data.sql
     
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml

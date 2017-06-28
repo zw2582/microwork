@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.integle.eureka.entity.Blog;
 import com.integle.eureka.entity.User;
 import com.integle.eureka.mapper.BlogMapper;
+import com.model.PUser;
 
 /**
  * @see http://docs.spring.io/spring/docs/5.0.0.RC2/spring-framework-reference/data-access.html#jdbc-introduction
@@ -34,7 +35,7 @@ import com.integle.eureka.mapper.BlogMapper;
 public class AppController {
 	
 	@Value("${server.port}")
-	private String port;
+	private String port; 
 	
 	@Autowired
 	BlogMapper blogMapper;
@@ -138,6 +139,11 @@ public class AppController {
                 "select title from blog where id = ?",
                 new Object[]{id}, String.class);
 		return lastName;
+	}
+	
+	@GetMapping("/puser")
+	public int pUser() {
+		return new PUser().id;
 	}
 
 }
